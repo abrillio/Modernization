@@ -1,5 +1,5 @@
 package com.capstone.Healthifyme.services;
 
-public interface UserService {
+public interface UserAuthService {
 
 }

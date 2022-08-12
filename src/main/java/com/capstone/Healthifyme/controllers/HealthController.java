@@ -23,5 +23,10 @@ public class HealthController {
 		return userRepo.findAll();// we need to return user.findAll();
 	}
 	
+	@GetMapping(path="/Hello")
+	public String hello() {
+		return "Hello";
+	}
+	
 
 }
