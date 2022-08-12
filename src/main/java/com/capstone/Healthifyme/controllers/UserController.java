@@ -10,7 +10,7 @@ import com.capstone.Healthifyme.entities.User;
 import com.capstone.Healthifyme.repos.UserRepo;
 
 @RestController
-public class HealthController {
+public class UserController {
 	@Autowired
 	UserRepo userRepo;
 

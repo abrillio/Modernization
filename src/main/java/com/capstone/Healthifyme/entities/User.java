@@ -17,6 +17,7 @@ public class User {
 	private int id;
 	private String name;
 	private int age;
+	private int weight;
 	private int height;// in centimeter
 	private int activatedPlanId;
 	private int password;
@@ -61,18 +62,26 @@ public class User {
 		this.activatedPlanId = activatedPlanId;
 	}
 
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", age=" + age + ", height=" + height + ", activatedPlanId="
-				+ activatedPlanId + ", password=" + password + "]";
-	}
-
 	public int getPassword() {
 		return password;
 	}
 
 	public void setPassword(int password) {
 		this.password = password;
+	}
+
+	public int getWeight() {
+		return weight;
+	}
+
+	public void setWeight(int weight) {
+		this.weight = weight;
+	}
+	
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", name=" + name + ", age=" + age + ", weight=" + weight + ", height=" + height
+				+ ", activatedPlanId=" + activatedPlanId + ", password=" + password + "]";
 	}
 
 }
