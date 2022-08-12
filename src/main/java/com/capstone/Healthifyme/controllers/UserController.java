@@ -10,7 +10,7 @@ import com.capstone.Healthifyme.entities.User;
 import com.capstone.Healthifyme.repos.UserRepo;
 
 @RestController
-public class HealthController {
+public class UserController {
 	@Autowired
 	UserRepo userRepo;
 
@@ -19,13 +19,5 @@ public class HealthController {
 	public List<User> getUsers() {
 		return userRepo.findAll();// we need to return user.findAll();
 	}
-
-	
-	@GetMapping(path="/Hello")
-	public String hello() {
-		return "Hello";
-	}
-	
-
 
 }

@@ -7,7 +7,25 @@ import javax.persistence.Id;
 public class Plan {
 	@Id
 	private int id;
-	private String name;
+	private String plan;
+	private int dietId;
+	private int workoutId;
+
+	public int getDietId() {
+		return dietId;
+	}
+
+	public void setDietId(int dietId) {
+		this.dietId = dietId;
+	}
+
+	public int getWorkoutId() {
+		return workoutId;
+	}
+
+	public void setWorkoutId(int workoutId) {
+		this.workoutId = workoutId;
+	}
 
 	public int getId() {
 		return id;
@@ -17,16 +35,17 @@ public class Plan {
 		this.id = id;
 	}
 
+	public String getPlan() {
+		return plan;
+	}
+
+	public void setPlan(String plan) {
+		this.plan = plan;
+	}
+
 	@Override
 	public String toString() {
-		return "Plan [id=" + id + ", name=" + name + "]";
+		return "Plan [id=" + id + ", plan=" + plan + ", dietId=" + dietId + ", workoutId=" + workoutId + "]";
 	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
+	
 }
