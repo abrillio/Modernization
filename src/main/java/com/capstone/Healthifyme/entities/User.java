@@ -1,9 +1,17 @@
 package com.capstone.Healthifyme.entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "user")
 public class User {
 //
 //	USER
@@ -13,22 +21,39 @@ public class User {
 //	weight(int)
 //	height(int)
 //	activatedPlanId(int)(FK)
-	@Id
-	private int id;
-	private String email;
-	private String name;
-	private int age;
-	private int weight;
-	private int height;// in centimeter
-	private int activatedPlanId;
-	private String password;
 
-	public int getId() {
-		return id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int user_id;
+
+	private String email;
+
+	private String name;
+
+	private int age;
+
+	private int weight;
+
+	private int height;// in centimeter
+
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "plan_id")
+	private Plan plan;
+
+	public int getUser_id() {
+		return user_id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getName() {
@@ -47,30 +72,6 @@ public class User {
 		this.age = age;
 	}
 
-	public int getHeight() {
-		return height;
-	}
-
-	public void setHeight(int height) {
-		this.height = height;
-	}
-
-	public int getActivatedPlanId() {
-		return activatedPlanId;
-	}
-
-	public void setActivatedPlanId(int activatedPlanId) {
-		this.activatedPlanId = activatedPlanId;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
 	public int getWeight() {
 		return weight;
 	}
@@ -79,18 +80,26 @@ public class User {
 		this.weight = weight;
 	}
 
-	public String getEmail() {
-		return email;
+	public int getHeight() {
+		return height;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setHeight(int height) {
+		this.height = height;
+	}
+
+	public Plan getPlan() {
+		return plan;
+	}
+
+	public void setPlan(Plan plan) {
+		this.plan = plan;
 	}
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", email=" + email + ", name=" + name + ", age=" + age + ", weight=" + weight
-				+ ", height=" + height + ", activatedPlanId=" + activatedPlanId + ", password=" + password + "]";
+		return "User [user_id=" + user_id + ", email=" + email + ", name=" + name + ", age=" + age + ", weight="
+				+ weight + ", height=" + height + ", plan=" + plan + "]";
 	}
 
 }

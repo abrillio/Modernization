@@ -15,7 +15,7 @@ public class HealthController {
 	UserRepo userRepo;
 
 	// just creating a sample program for getting all the users
-	@GetMapping(path = "/Users")
+	@GetMapping(path = "/home")
 	public List<User> getUsers() {
 		return userRepo.findAll();// we need to return user.findAll();
 	}

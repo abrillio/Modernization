@@ -1,26 +1,45 @@
 package com.capstone.Healthifyme.entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "workout")
 public class Workout {
+
 	@Id
-	private int id;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int workout_id;
+
 	private int exercise1;
+
 	private int exercise2;
+
 	private int exercise3;
+
 	private int exercise4;
+
 	private int exercise5;
+
 	private int exercise6;
+
 	private int caloriesBurnt;
 
-	public int getId() {
-		return id;
+	@OneToOne(fetch = FetchType.EAGER, mappedBy = "workout", cascade = CascadeType.ALL)
+	private Plan plan;
+
+	public int getWorkout_id() {
+		return workout_id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setWorkout_id(int workout_id) {
+		this.workout_id = workout_id;
 	}
 
 	public int getExercise1() {
@@ -79,11 +98,19 @@ public class Workout {
 		this.caloriesBurnt = caloriesBurnt;
 	}
 
+	public Plan getPlan() {
+		return plan;
+	}
+
+	public void setPlan(Plan plan) {
+		this.plan = plan;
+	}
+
 	@Override
 	public String toString() {
-		return "Workout [id=" + id + ", exercise1=" + exercise1 + ", exercise2=" + exercise2 + ", exercise3="
-				+ exercise3 + ", exercise4=" + exercise4 + ", exercise5=" + exercise5 + ", exercise6=" + exercise6
-				+ ", caloriesBurnt=" + caloriesBurnt + "]";
+		return "Workout [workout_id=" + workout_id + ", exercise1=" + exercise1 + ", exercise2=" + exercise2
+				+ ", exercise3=" + exercise3 + ", exercise4=" + exercise4 + ", exercise5=" + exercise5 + ", exercise6="
+				+ exercise6 + ", caloriesBurnt=" + caloriesBurnt + ", plan=" + plan + "]";
 	}
 
 }
