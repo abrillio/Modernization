@@ -1,9 +1,17 @@
 package com.capstone.Healthifyme.entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "user")
 public class User {
 //
 //	USER
@@ -13,9 +21,8 @@ public class User {
 //	weight(int)
 //	height(int)
 //	activatedPlanId(int)(FK)
-	
-	private int id;
 	@Id
+	private int id;
 	private String email;
 	private String name;
 	private int age;
@@ -46,6 +53,14 @@ public class User {
 
 	public void setAge(int age) {
 		this.age = age;
+	}
+
+	public int getWeight() {
+		return weight;
+	}
+
+	public void setWeight(int weight) {
+		this.weight = weight;
 	}
 
 	public int getHeight() {
@@ -90,8 +105,8 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", email=" + email + ", name=" + name + ", age=" + age + ", weight=" + weight
-				+ ", height=" + height + ", activatedPlanId=" + activatedPlanId + ", password=" + password + "]";
+		return "User [user_id=" + user_id + ", email=" + email + ", name=" + name + ", age=" + age + ", weight="
+				+ weight + ", height=" + height + ", plan=" + plan + "]";
 	}
 
 }
