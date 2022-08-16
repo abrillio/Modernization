@@ -55,13 +55,6 @@ public class User {
 		this.age = age;
 	}
 
-	public int getWeight() {
-		return weight;
-	}
-
-	public void setWeight(int weight) {
-		this.weight = weight;
-	}
 
 	public int getHeight() {
 		return height;
@@ -105,8 +98,8 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [user_id=" + user_id + ", email=" + email + ", name=" + name + ", age=" + age + ", weight="
-				+ weight + ", height=" + height + ", plan=" + plan + "]";
+		return "User [user_id=" + id + ", email=" + email + ", name=" + name + ", age=" + age + ", weight="
+				+ weight + ", height=" + height + ", plan=" + activatedPlanId + "]";
 	}
 
 }

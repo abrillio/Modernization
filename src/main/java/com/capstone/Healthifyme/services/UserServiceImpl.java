@@ -17,4 +17,15 @@ public class UserServiceImpl implements UserService {
 		return userRepo.findAll();
 	}
 
+	@Override
+	public String registerUser(User user) {
+		try {
+			userRepo.save(user);
+			return "User inserted successfully";
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "Error Occurred";
+		}
+	}
+
 }

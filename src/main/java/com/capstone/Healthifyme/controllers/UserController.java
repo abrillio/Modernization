@@ -22,8 +22,10 @@ public class UserController {
 		return this.userService.getUsers();
 	}
 	
-	
-
+	@PostMapping(path = "/register")
+	public String registerUser(User user) {
+		return this.userService.registerUser(user);
+	}
 //	@PostMapping(path="/users")
 //	public void addUser() {
 //		userRepo.save(user);

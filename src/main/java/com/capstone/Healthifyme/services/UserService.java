@@ -6,5 +6,7 @@ import com.capstone.Healthifyme.entities.User;
 
 public interface UserService {
 	public List<User> getUsers();
+	
+	public String registerUser(User user);
 
 }
