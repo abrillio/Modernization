@@ -19,11 +19,10 @@ public class UserController {
 	// just creating a sample program for getting all the users
 	@GetMapping(path = "/users")
 	public List<User> getUsers() {
-		return this.userService.
+		return this.userService.getUsers();
 	}
 	
-	@PostMapping(path = "/register")
-	public 
+	
 
 //	@PostMapping(path="/users")
 //	public void addUser() {
