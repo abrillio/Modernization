@@ -13,8 +13,9 @@ public class User {
 //	weight(int)
 //	height(int)
 //	activatedPlanId(int)(FK)
-	@Id
+	
 	private int id;
+	@Id
 	private String email;
 	private String name;
 	private int age;

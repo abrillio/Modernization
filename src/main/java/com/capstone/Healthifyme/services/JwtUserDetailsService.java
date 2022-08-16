@@ -8,19 +8,20 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import com.capstone.Healthifyme.entities.User;
 import com.capstone.Healthifyme.repos.UserRepo;
 
-public class CustomUserDetailService implements UserDetailsService{
+public class JwtUserDetailsService implements UserDetailsService{
 	
 	@Autowired
 	private UserRepo userRepo;
 
 
 	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+		User user;
 		
-		
-		
-		return null;
+		user = userRepo.findByemail(email);
+		if(user.getName().equals(email)) return (UserDetails) user;
 		// TODO Auto-generated method stub
+		else throw new UsernameNotFoundException("User Not Found");
 		
 	}
 	
