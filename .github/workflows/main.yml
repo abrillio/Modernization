@@ -21,9 +21,9 @@ jobs:
 
       - name: Build JAR
         run: |
-          javac HelloWorld.java
-          jar cvfe HelloWorld.jar HelloWorld HelloWorld.class
+          javac helloworld.java
+          jar cvfe helloworld.jar helloworld helloworld.class
 
       - name: Run Java Application
-        run: java -jar HelloWorld.jar
+        run: java -jar helloworld.jar
 
