@@ -1,0 +1,27 @@
+name: Java Build and Run
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check Out Code
+        uses: actions/checkout@v2
+
+      - name: Set up Java
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11' # Change this to your desired Java version
+
+      - name: Build JAR
+        run: |
+          javac helloworld.java
+          jar cvfe HelloWorld.jar HelloWorld HelloWorld.class
+
+      - name: Run Java Application
+        run: java -jar helloworld.jar
