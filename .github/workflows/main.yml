@@ -17,11 +17,13 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '11' # Change this to your desired Java version
+          distribution: 'adopt' # Specify the distribution, e.g., 'adopt', 'adopt@1.11', or 'adopt-hotspot'
 
       - name: Build JAR
         run: |
-          javac helloworld.java
+          javac HelloWorld.java
           jar cvfe HelloWorld.jar HelloWorld HelloWorld.class
 
       - name: Run Java Application
-        run: java -jar helloworld.jar
+        run: java -jar HelloWorld.jar
+
